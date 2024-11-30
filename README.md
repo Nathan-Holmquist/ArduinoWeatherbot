@@ -18,3 +18,8 @@ I am using a Arduino Uno Starter Kit and the supplies I use are:
 A potentiometer is a twistable knob that increases and decreases resistance through a wire. In this case, it is used to increase and decrease the contrast of the LCD screen.
 I didn't have a potentiometer for my build so I instead used a PWM (Pulse Width Modulation) port to simulate resistance. So the V0 LCD port connects directly to a PWM port that I specify in my Arduino code.
 
+# OpenWeathermap
+OenWeatherMap has free weather API that is simple to use and gives you Weekly, Daily, or hourly weather data about a location you specify. The arduino I used for this does not have a wifi chip. In theory, if you have a wifi chip and a battery to power the arduino, you can use this LCD to display the current weather completely remote/wirelessly.
+
+
+
