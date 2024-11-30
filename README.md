@@ -23,3 +23,24 @@ OenWeatherMap has free weather API that is simple to use and gives you Weekly, D
 
 
 
+# How to Get Everything Working
+
+### Now for what you probably want to know. How do you set this thing up?
+
+1. Setup the LCD on the Arduino
+
+  
+
+This was probably the hardest part for me just because I have never done this before so I didn't know how to do anything. Watch a youtube turorial, follow the directions, and you should be fine.
+
+For this build, I have the LCD data connections set to (12, 11, 5, 4, 3, 2). I believe that these are the data ports on the arduino. If you wire your arduino differently, you should change these values. They are at the top of the "ArduinoCode" file.
+
+2. Download the Arduino IDE
+
+I don't know if there is a easier way than the native Arduino software to upload code to the board but it was the method that I chose to use. Copy paste my code or write some code of your own but make sure to upload your code to the Arduino.  Check that your Arduino is using COM1 as the serial communication port (I think it is default?) or if you are using something different, make sure to change the port that it listens on in the code.
+
+3. Run the python code on your PC
+
+Download the Python code. After you have it open in an IDE go to the lines where there are comments in all caps. These are the lines of code that you might want to change. They consist of the API key, the port to send data to Arduino (in this case COM3), and the location that you want to get the weather of (city name).
+
+This is the main section where I can improve . Right now, you need to run the python API code to get the data, parse it, take what you need, and then give it to the Arduino over the COM3 port. I want to eventually be able to do this all wirelessly. I want to get a Wi-Fi chip and have it refresh every hour to get the hourly forecast, and setup to a battery that is solar powered so it can run forever. 
