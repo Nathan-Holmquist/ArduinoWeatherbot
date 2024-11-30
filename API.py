@@ -2,7 +2,7 @@ import requests
 import time
 import serial
 
-API_KEY = "a7f45fbcfe01b22cf116a68889c8e31c"
+API_KEY = ""  # PUT YOUR API KEY THAT YOU GET FROM OPENWEATHERMAP INBETWEEN THE QUOTES
 
 def get_forecast(city_name, api_key, units="imperical"):
 
@@ -12,16 +12,16 @@ def get_forecast(city_name, api_key, units="imperical"):
     params = {
         "q": city_name,  
         "appid": api_key,  
-        "cnt": 1,  # Number of days for the forecast
+        "cnt": 1,  # The amount of days you want to get the forcast for. | ex. 3  will give you the weather for today and the next 2 days
         "units": units,
     }
     
     try:
    
         response = requests.get(url, params=params)
-        response.raise_for_status()  # Raise an error for bad status codes
+        response.raise_for_status()  
 
-        # Parse JSON response
+        # Parse JSON
         data = response.json()
 
         city = data["city"]["name"]
@@ -53,11 +53,11 @@ def send_to_arduino(data):
         print(f"Error: {e}")
 
 try:
-    arduino = serial.Serial(port='COM3', baudrate=9600, timeout=1)
-    time.sleep(2) #setup time DO NOT TOUCH THIS
+    arduino = serial.Serial(port='COM3', baudrate=9600, timeout=1) # ASSUMING THAT YOU ARE USING COM3
+    time.sleep(2) #setup time, don't touch this
 
     # Fetch the forecast and send to Arduino
-    lcd_output = get_forecast("Reston", API_KEY)
+    lcd_output = get_forecast("<YOUR CITY HERE>", API_KEY) # WRITE WHATEVER CITY YOU WANT TO GET THE FORECAST FOR
     if lcd_output:
         send_to_arduino(lcd_output)
 
