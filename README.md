@@ -1,4 +1,4 @@
-### ArduinoWeatherAPI
+### ArduinoWeatherbot
 
 
 ## Summery
